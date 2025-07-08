@@ -1,0 +1,5 @@
+Client ID
+Ov23liNB4qhTl9WVKmmg
+
+Client secrets
+e1452fac6c6acf5ba82e7cac956fc44ffb10446d
