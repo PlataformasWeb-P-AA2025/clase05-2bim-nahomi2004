@@ -91,7 +91,8 @@ def crear_estudiante(request):
     return render(request, 'crearEstudiante.html', diccionario)
 
 
-@login_required(login_url='/entrando/login/')
+# @login_required(login_url='/entrando/login/')
+@login_required
 @permission_required('administrativo.change_estudiante',)
 def editar_estudiante(request, id):
     """
@@ -109,7 +110,11 @@ def editar_estudiante(request, id):
 
     return render(request, 'editarEstudiante.html', diccionario)
 
-
+# No se necesita el @login_required(login_url='/entrando/login/') 
+# porque en el archivo settings.py del proyecto se especifico esta url. 
+# Haciendo independiente a esta seccion de aqui. Optimizando la aplicacion
+@login_required
+@permission_required('administrativo.delete_estudiante',)
 def eliminar_estudiante(request, id):
     """
     """
@@ -141,7 +146,7 @@ def crear_numero_telefonico(request):
 
     return render(request, 'crearNumeroTelefonico.html', diccionario)
 
-
+@en_grupo('supervisor')
 def editar_numero_telefonico(request, id):
     """
     """
@@ -158,6 +163,7 @@ def editar_numero_telefonico(request, id):
 
     return render(request, 'crearNumeroTelefonico.html', diccionario)
 
+@en_grupo('supervisor')
 def crear_numero_telefonico_estudiante(request, id):
     """
     """
